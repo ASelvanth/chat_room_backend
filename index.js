@@ -5,7 +5,7 @@ const http = require('http'); //default http package
 const { Server } = require('socket.io');
 
 const app = express();
-
+app.use(cors());
 //ex for http socket connection
 const server = http.createServer(app);
 
