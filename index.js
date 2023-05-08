@@ -5,7 +5,7 @@ const http = require('http'); //default http package
 const { Server } = require('socket.io');
 
 const app = express();
-app.use(cors());
+
 //ex for http socket connection
 const server = http.createServer(app);
 
@@ -21,6 +21,12 @@ const io = new Server(server,{
 app.get('/',(req,res)=>{
     res.send("Chat App Home Page");
 });
+
+app.use(cors({
+    origin: 'https://chat-room-fe.netlify.app/',
+    credentials : true
+}));
+
 
 io.on('connection', (socket) => {
 
