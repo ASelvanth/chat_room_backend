@@ -22,11 +22,6 @@ app.get('/',(req,res)=>{
     res.send("Chat App Home Page");
 });
 
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials : true
-}));
-
 
 io.on('connection', (socket) => {
 
