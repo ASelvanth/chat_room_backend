@@ -5,25 +5,25 @@ const http = require('http'); //default http package
 const { Server } = require('socket.io');
 
 const app = express();
+app.use(cors());
 
 //ex for http socket connection
 const server = http.createServer(app);
 
 //socket connection
-const io = new Server(server,{
+const io = new Server(server, {
     cors: {
-        origin :'https://chat-room-fe.netlify.app/',
-        methods : ['GET', 'POST'],
-        credentials : true
-    }
-});
+      origin: "https://chat-room-fe.netlify.app",
+      methods: ["GET", "POST"],
+    },
+  });
 
 app.get('/',(req,res)=>{
     res.send("Chat App Home Page");
 });
 
 app.use(cors({
-    origin: 'https://chat-room-fe.netlify.app/',
+    origin: 'http://localhost:3000',
     credentials : true
 }));
 
